@@ -15,6 +15,9 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   "Editor
   Plug 'airblade/vim-rooter'
+  "File Explorer
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 

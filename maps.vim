@@ -1,21 +1,22 @@
 " Remaps
 vnoremap Y "+y
 noremap S :%s//gc<left><left><left>
-noremap <backspace> <cmd>noh<CR>
-noremap <A-w> <cmd>set nowrap!<CR>
-noremap <A-p> <cmd>set paste!<CR>
+noremap <backspace> :noh<CR>
+noremap <A-w> :set nowrap!<CR>
+noremap <A-p> :set paste!<CR>
+nnoremap <leader>l <cmd>call setqflist([])<cr>
 " Window
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 " Tabs
-map <A-t> <cmd>tabnew<cr>
-map <A-c> <cmd>tabclose<cr>
-map <A-h> <cmd>tabfirst<cr>
-map <A-l> <cmd>tablast<cr>
-map <A-j> <cmd>tabprevious<cr>
-map <A-k> <cmd>tabnext<cr>
+map <silent> <A-t> :tabnew<cr>
+map <silent> <A-c> :tabclose<cr>
+map <silent> <A-h> :tabp<cr>
+map <silent> <A-l> :tabn<cr>
+map <silent> <A-L> :+tabm<cr>
+map <silent> <A-H> :-tabm<cr>
 "Terminal
 tnoremap <ESC> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-h>
@@ -83,7 +84,7 @@ vnoremap <leader>= <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
 "Telescope
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fgs <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>fgr <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>fgf <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fof <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
