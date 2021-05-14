@@ -5,7 +5,9 @@ call plug#begin()
   "LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
-  Plug 'nvim-lua/diagnostic-nvim'
+  "Compe
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'hrsh7th/vim-vsnip'
   "TreeSitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -18,9 +20,13 @@ call plug#begin()
   "File Explorer
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Langs
+  Plug 'davidgranstrom/scnvim'
 call plug#end()
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
+" Lua (LSP)
+lua require("lsp_config")
 " Global Settings
 source ~/.config/nvim/globalsettings.vim
 "Plugin Settings
@@ -31,6 +37,3 @@ source ~/.config/nvim/style.vim
 source ~/.config/nvim/maps.vim
 "Scripts
 source ~/.config/nvim/scripts/prosamode.vim
-" Lua (LSP)
-lua require("lsp_config")
-
