@@ -2,6 +2,7 @@
 call plug#begin()
   "Colorschemes
   Plug 'sainnhe/gruvbox-material'
+  Plug 'sainnhe/sonokai'
   "LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'

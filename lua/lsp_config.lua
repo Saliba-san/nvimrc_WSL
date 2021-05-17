@@ -20,6 +20,12 @@ nvim_lsp.clangd.setup{
 	capabilities = capabilities,
 };
 
+-- Vimls
+nvim_lsp.vimls.setup{
+  on_attach = custom_attach;
+	capabilities = capabilities,
+};
+
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true
@@ -61,9 +67,9 @@ require'compe'.setup {
     source_timeout = 200;
     incomplete_delay = 400;
     allow_prefix_unmatch = false;
-    max_abbr_width = 1000;
-    max_kind_width = 1000;
-    max_menu_width = 1000000;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
     documentation = true;
 
     source = {

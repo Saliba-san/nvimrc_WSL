@@ -50,7 +50,7 @@ nnoremap gD <cmd>tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap gt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <C-K> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <A-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>ds <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>ws <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>gd <cmd>lua vim.lsp.buf.declaration()<CR>
