@@ -21,6 +21,7 @@ set nowrap
 set mouse=a
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+set nrformats+=alpha
 let g:tex_flavor = 'latex'
 " Leader
 map <SPACE> <Nop>
