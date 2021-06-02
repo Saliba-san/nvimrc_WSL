@@ -13,7 +13,7 @@ set smartcase
 set nospell
 set noshowmode
 set nobackup
-set undodir=/home/saliba/.config/nvim/undodir
+set undodir=/Users/bi009279/.config/nvim/undodir
 set undofile
 set incsearch
 set ignorecase

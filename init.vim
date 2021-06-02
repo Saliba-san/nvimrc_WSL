@@ -5,7 +5,8 @@ call plug#begin()
   Plug 'sainnhe/sonokai'
   "LSP
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
+  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'ray-x/lsp_signature.nvim'
   "Compe
   Plug 'hrsh7th/nvim-compe'
   Plug 'hrsh7th/vim-vsnip'
@@ -18,23 +19,29 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   "Editor
   Plug 'airblade/vim-rooter'
+  Plug 'godlygeek/tabular'
   "File Explorer
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   "Langs
-  Plug 'davidgranstrom/scnvim'
+    "SC
+    Plug 'davidgranstrom/scnvim'
+    "Md
+    Plug 'plasticboy/vim-markdown'
 call plug#end()
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
-" Lua (LSP)
+"Lua (LSP)
 lua require("lsp_config")
-" Global Settings
+"Global Settings
 source ~/.config/nvim/globalsettings.vim
 "Plugin Settings
 source ~/.config/nvim/pluginsettings.vim
-" Style
+"Style
 source ~/.config/nvim/style.vim
 "Mappings
 source ~/.config/nvim/maps.vim
 "Scripts
-source ~/.config/nvim/scripts/prosamode.vim
+source ~/.config/nvim/scripts/togglequickfix.vim
+command CProsa :source ~/.config/nvim/scripts/prosamode.vim
+command CRotate :source ~/.config/nvim/scripts/rotate.vim

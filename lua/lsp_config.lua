@@ -1,7 +1,13 @@
 local nvim_lsp = require "lspconfig"
 
-local on_attach = function(client, bufnr)
+local custom_attach = function()
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  require "lsp_signature".on_attach({
+    bind = true,
+    handler_opts = {
+      border = "single"
+    }
+  })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -13,7 +19,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
-
 -- Clang
 nvim_lsp.clangd.setup{
   on_attach = custom_attach;
@@ -25,6 +30,48 @@ nvim_lsp.vimls.setup{
   on_attach = custom_attach;
 	capabilities = capabilities,
 };
+
+-- Latex
+nvim_lsp.texlab.setup{
+  on_attach = custom_attach;
+	capabilities = capabilities,
+};
+
+-- Python
+nvim_lsp.pyright.setup{
+  on_attach = custom_attach;
+	capabilities = capabilities,
+};
+
+-- Bash
+nvim_lsp.bashls.setup{
+  on_attach = custom_attach;
+	capabilities = capabilities,
+};
+
+-- Lua
+nvim_lsp.sumneko_lua.setup{
+  on_attach = custom_attach;
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      },
+      runtime = {
+        version = "LuaJIT",
+        path = vim.split(package.path, ";")
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        }
+      }
+    }
+  },
+	capabilities = capabilities,
+};
+
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -120,6 +167,22 @@ _G.s_tab_complete = function()
   else
     return t "<S-Tab>"
   end
+end
+
+--LspInstall
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
+
+setup_servers()
+
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})

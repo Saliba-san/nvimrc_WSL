@@ -1,22 +1,20 @@
 " Remaps
 vnoremap Y "+y
-noremap S :%s//gc<left><left><left>
 noremap <backspace> :noh<CR>
 noremap <A-w> :set nowrap!<CR>
 noremap <A-p> :set paste!<CR>
-nnoremap <leader>l <cmd>call setqflist([])<cr>
 " Window
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 " Tabs
-map <silent> <A-t> :tabnew<cr>
-map <silent> <A-c> :tabclose<cr>
-map <silent> <A-h> :tabp<cr>
-map <silent> <A-l> :tabn<cr>
-map <silent> <A-L> :+tabm<cr>
-map <silent> <A-H> :-tabm<cr>
+map <silent> <M-t> :tabnew<cr>
+map <silent> <M-c> :tabclose<cr>
+map <silent> <M-h> :tabp<cr>
+map <silent> <M-l> :tabn<cr>
+map <silent> <M-L> :+tabm<cr>
+map <silent> <M-H> :-tabm<cr>
 "Terminal
 tnoremap <ESC> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-h>
@@ -30,6 +28,8 @@ nnoremap <Up> <cmd>resize +5<CR>
 nnoremap <Down> <cmd>resize -5<CR>
 nnoremap x "_x
 vnoremap x "_x
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 " Visual
 vnoremap ;" "vc"<C-r>v"<ESC>
 vnoremap ;' "vc'<C-r>v'<ESC>
@@ -37,8 +37,6 @@ vnoremap ;( "vc(<C-r>v)<ESC>
 vnoremap ;[ "vc[<C-r>v]<ESC>
 vnoremap ;{ "vc{<C-r>v}<ESC>
 "Tabbing
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
 vnoremap <Tab> >
 vnoremap <S-Tab> <
 vmap > >gv
@@ -50,7 +48,7 @@ nnoremap gD <cmd>tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap gt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <A-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <M-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>ds <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>ws <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>gd <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -78,7 +76,7 @@ nnoremap <leader>tbf <cmd>lua require('telescope.builtin').current_buffer_fuzzy_
 nnoremap <leader>th <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>tz <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 nnoremap <leader>tm <cmd>lua require('telescope.builtin').marks()<cr>
-nnoremap <leader>tm <cmd>lua require('telescope.builtin').keymaps()<cr>
+nnoremap <leader>tkm <cmd>lua require('telescope.builtin').keymaps()<cr>
 "TelescopeLSP
 nnoremap <leader>tlr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader>tlds <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
