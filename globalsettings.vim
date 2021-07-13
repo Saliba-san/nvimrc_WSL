@@ -26,4 +26,3 @@ let g:tex_flavor = 'latex'
 " Leader
 map <SPACE> <Nop>
 let mapleader = " "
-

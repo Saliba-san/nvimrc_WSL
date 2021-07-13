@@ -92,8 +92,12 @@ nnoremap <leader>tgs <cmd>lua require('telescope.builtin').git_status()<cr>
 "TelescopeTreesitter
 nnoremap <leader>tt <cmd>lua require('telescope.builtin').treesitter()<cr>
 
+"Vsnip
 imap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
 smap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
 imap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 smap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
+
+"Nabla
+nnoremap <F5> :lua require("nabla").place_inline()<CR>

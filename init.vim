@@ -2,11 +2,9 @@
 call plug#begin()
   "Colorschemes
   Plug 'sainnhe/gruvbox-material'
-  Plug 'sainnhe/sonokai'
   "LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'ray-x/lsp_signature.nvim'
   "Compe
   Plug 'hrsh7th/nvim-compe'
   Plug 'hrsh7th/vim-vsnip'
@@ -20,6 +18,8 @@ call plug#begin()
   "Editor
   Plug 'airblade/vim-rooter'
   Plug 'godlygeek/tabular'
+  Plug 'mhinz/vim-startify'
+  Plug 'jbyuki/nabla.nvim'
   "File Explorer
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
